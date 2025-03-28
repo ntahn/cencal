@@ -1,0 +1,30 @@
+.header {
+  height: 60px;
+}
+
+.logo {
+  width: 14%;
+  min-width: 200px;
+  height: 100%;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.title {
+  flex: 1;
+  height: 100%;
+  border-bottom: 1px solid var(--border);
+}
+
+.buttons {
+  background-color: #212226;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin-left: 20px;
+  margin-right: 12px;
+  border-radius: 8px;
+  height: 32px;
+  width: 32px;
+}
