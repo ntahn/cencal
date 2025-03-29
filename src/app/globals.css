@@ -2,6 +2,10 @@
   --background: #0f0f0f;
   --foreground: #ffffff;
   --border: #2f323e;
+  --gray-300: #c6c8d2;
+  --gray-400: #858585;
+  --gray-700: #212226;
+  --side-bar-width: 14%;
 }
 
 html,

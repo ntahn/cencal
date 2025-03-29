@@ -1,0 +1,22 @@
+.container {
+  width: var(--side-bar-width);
+  height: calc(100vh - 60px);
+  padding-top: 12px;
+  border-right: 1px solid var(--border);
+
+  .itemContainer {
+    width: 100%;
+    height: 40px;
+
+    .icon {
+      margin-left: 16px;
+    }
+
+    .label {
+      margin-left: 8px;
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--gray-300);
+    }
+  }
+}

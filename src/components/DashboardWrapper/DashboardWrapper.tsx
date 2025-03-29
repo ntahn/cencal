@@ -1,4 +1,5 @@
 import React from "react";
+import { Flex } from "antd";
 import { Header } from "../Header";
 import { SideBar } from "../SideBar";
 
@@ -10,10 +11,10 @@ export const DashboardWrapper = (props: DashboardWrapperProps) => {
   return (
     <div>
       <Header />
-      <div>
+      <Flex>
         <SideBar />
         {props.children}
-      </div>
+      </Flex>
     </div>
   );
 };
