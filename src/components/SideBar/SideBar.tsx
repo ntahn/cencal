@@ -15,8 +15,6 @@ import {
 
 import styles from "./SideBar.module.scss";
 
-type SideBarProps = {};
-
 const SIDEBAR_ITEMS: SideBarItemProps[] = [
   {
     label: "Proposals",
@@ -60,7 +58,7 @@ const SIDEBAR_ITEMS: SideBarItemProps[] = [
   },
 ];
 
-export const SideBar = (props: SideBarProps) => {
+export const SideBar = () => {
   return (
     <Flex className={styles.container} vertical>
       {SIDEBAR_ITEMS.map((item) => (
