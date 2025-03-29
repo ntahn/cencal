@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { usePathname } from "next/navigation";
 import { Flex } from "antd";
 
 import { SideBarItem, SideBarItemProps } from "./SideBarItem";
@@ -14,51 +17,54 @@ import {
 } from "@/assets/icons";
 
 import styles from "./SideBar.module.scss";
+import { ROUTES } from "@/constants";
 
 const SIDEBAR_ITEMS: SideBarItemProps[] = [
   {
-    label: "Proposals",
-    href: "/proposals",
-    icon: <AlignTop />,
+    label: ROUTES.PROPOSALS.title,
+    href: ROUTES.PROPOSALS.path,
+    icon: AlignTop,
   },
   {
-    label: "Services",
-    href: "/services",
-    icon: <Car />,
+    label: ROUTES.SERVICES.title,
+    href: ROUTES.SERVICES.path,
+    icon: Car,
   },
   {
-    label: "Vehicle Rules",
-    href: "/vehicle-rules",
-    icon: <Currency />,
+    label: ROUTES.VEHICLE_RULES.title,
+    href: ROUTES.VEHICLE_RULES.path,
+    icon: Currency,
   },
   {
-    label: "Appointments",
-    href: "/appointments",
-    icon: <Calendar />,
+    label: ROUTES.APPOINTMENTS.title,
+    href: ROUTES.APPOINTMENTS.path,
+    icon: Calendar,
   },
   {
-    label: "Inventory",
-    href: "/inventory",
-    icon: <Package />,
+    label: ROUTES.INVENTORY.title,
+    href: ROUTES.INVENTORY.path,
+    icon: Package,
   },
   {
-    label: "Contacts",
-    href: "/contacts",
-    icon: <User />,
+    label: ROUTES.CONTACTS.title,
+    href: ROUTES.CONTACTS.path,
+    icon: User,
   },
   {
-    label: "Transactions",
-    href: "/transactions",
-    icon: <MoneyBill />,
+    label: ROUTES.TRANSACTIONS.title,
+    href: ROUTES.TRANSACTIONS.path,
+    icon: MoneyBill,
   },
   {
-    label: "Invoices",
-    href: "/invoices",
-    icon: <Newspaper />,
+    label: ROUTES.INVOICES.title,
+    href: ROUTES.INVOICES.path,
+    icon: Newspaper,
   },
 ];
 
 export const SideBar = () => {
+  const pathname = usePathname();
+
   return (
     <Flex className={styles.container} vertical>
       {SIDEBAR_ITEMS.map((item) => (
@@ -67,6 +73,7 @@ export const SideBar = () => {
           label={item.label}
           href={item.href}
           icon={item.icon}
+          selected={pathname.includes(item.href)}
         />
       ))}
     </Flex>

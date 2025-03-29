@@ -7,8 +7,12 @@ export const colors = {
     400: "#858585",
     700: "#212226",
   },
+  blue: {
+    600: "#2e7ff1",
+  },
 };
 
 // Type for accessing colors
 export type ColorKeys = keyof typeof colors;
 export type GrayKeys = keyof typeof colors.gray;
+export type BlueKeys = keyof typeof colors.blue;
