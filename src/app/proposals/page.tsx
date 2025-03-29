@@ -1,3 +1,3 @@
 export default function Proposals() {
-  return <div>Proposals</div>;
+  return <h1>Proposals</h1>;
 }

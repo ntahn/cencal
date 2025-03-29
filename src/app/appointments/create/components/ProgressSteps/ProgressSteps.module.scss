@@ -1,0 +1,24 @@
+.steps {
+  width: 20%;
+  margin-right: 30px;
+
+  :global(.ant-steps-item-title) {
+    color: var(--gray-500) !important;
+  }
+
+  :global(.ant-steps-item-tail) {
+    &::after {
+      background-color: var(--foreground) !important;
+    }
+  }
+
+  :global(.ant-steps-item-description) {
+    color: var(--foreground) !important;
+  }
+
+  :global(.ant-steps-item-wait) {
+    :global(.ant-steps-icon-dot) {
+      background-color: var(--foreground) !important;
+    }
+  }
+}

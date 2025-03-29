@@ -3,7 +3,7 @@
 import { Figtree } from "next/font/google";
 import { Provider } from "react-redux";
 import { store } from "@/store";
-import { DashboardWrapper } from "@/components/DashboardWrapper";
+import { DashboardWrapper } from "@/components";
 
 import "./globals.css";
 

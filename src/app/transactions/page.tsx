@@ -1,3 +1,3 @@
 export default function Transactions() {
-  return <div>Transactions</div>;
+  return <h1>Transactions</h1>;
 }

@@ -1,5 +1,5 @@
 .content {
-  width: 100%;
+  flex: 1;
   padding-top: 24px;
   padding-left: 16px;
   background: linear-gradient(
@@ -7,4 +7,14 @@
     rgb(46, 127, 241, 0.3) 0%,
     var(--background) 15%
   );
+
+  h1 {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    height: 52px;
+    padding-bottom: 16px;
+  }
 }

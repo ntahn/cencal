@@ -1,5 +1,9 @@
 export const strings = {
-  appointments: {
-    headerTitle: "Create Appointment",
+  APPOINTMENTS: {
+    CREATE: {
+      CLIENT_INFO: {
+        TITLE: "Client Information",
+      },
+    },
   },
 };

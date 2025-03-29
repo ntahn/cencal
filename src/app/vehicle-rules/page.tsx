@@ -1,3 +1,3 @@
 export default function VehicleRules() {
-  return <div>VehicleRules</div>;
+  return <h1>Vehicle Rules</h1>;
 }
