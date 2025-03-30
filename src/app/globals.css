@@ -5,11 +5,13 @@
   --gray-300: #c6c8d2;
   --gray-400: #858585;
   --gray-500: #7f859f;
+  --gray-550: #6e6f76;
   --gray-600: #2f323e;
   --gray-700: #212226;
   --gray-800: #18181b;
   --blue-400: #058cd7;
   --blue-600: #2e7ff1;
+  --blue-900: #00285f;
   --red-required: #f64d3c;
   --side-bar-width: 14%;
 }

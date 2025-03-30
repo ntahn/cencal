@@ -6,3 +6,10 @@ export interface Contact {
   note: string;
   id: string;
 }
+
+export interface ContactTableDataType {
+  key: React.Key;
+  name: string;
+  email: string;
+  phoneNumber: string;
+}

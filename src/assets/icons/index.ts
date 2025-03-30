@@ -10,3 +10,4 @@ export * from "./Newspaper";
 export * from "./Plus";
 export * from "./ArrowDown";
 export * from "./Cross";
+export * from "./Search";
