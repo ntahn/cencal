@@ -7,3 +7,6 @@ export * from "./User";
 export * from "./Currency";
 export * from "./MoneyBill";
 export * from "./Newspaper";
+export * from "./Plus";
+export * from "./ArrowDown";
+export * from "./Cross";

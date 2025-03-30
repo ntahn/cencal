@@ -3,6 +3,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
 
 import Image from "next/image";
 import Logo from "@/assets/images/logo.png";
@@ -37,8 +38,11 @@ export const Header = ({}: HeaderProps) => {
   return (
     <Flex className={styles.container} align="center">
       <Flex className={styles.logo} align="center" justify="center">
-        <Image src={Logo} alt="cencal-logo" width={160} height={26} />
+        <Link href={"/"} style={{ textDecoration: "none" }}>
+          <Image src={Logo} alt="cencal-logo" width={160} height={26} />
+        </Link>
       </Flex>
+
       <Flex className={styles.title} align="center">
         {showBackButton && (
           <button className={styles.buttons} onClick={handleBack}>
