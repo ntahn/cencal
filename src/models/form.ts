@@ -14,3 +14,10 @@ export interface ClientInfoFormData {
     vin?: string;
   };
 }
+
+export interface AddContactInput {
+  id: string;
+  title: string;
+  placeholder: string;
+  isRequired: boolean;
+}

@@ -16,10 +16,12 @@ import styles from "./SelectContactsDrawer.module.scss";
 
 type SelectContactsDrawerProps = {
   onCancel: () => void;
+  onClickAdd: () => void;
 };
 
 export const SelectContactsDrawer = ({
   onCancel,
+  onClickAdd,
 }: SelectContactsDrawerProps) => {
   const allContacts = useAppSelector(selectAllContacts);
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -70,7 +72,7 @@ export const SelectContactsDrawer = ({
 
   return (
     <div className={styles.container}>
-      <SearchHeader onSearch={handleSearch} onAddNew={() => {}} />
+      <SearchHeader onSearch={handleSearch} onAddNew={onClickAdd} />
       <ContactsTable
         dataSource={dataSource}
         selectedRowIds={selectedRowIds}

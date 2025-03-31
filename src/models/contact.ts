@@ -7,6 +7,8 @@ export interface Contact {
   id: string;
 }
 
+export type AddContactFormData = Omit<Contact, "id">;
+
 export interface ContactTableDataType {
   id: string;
   name: string;

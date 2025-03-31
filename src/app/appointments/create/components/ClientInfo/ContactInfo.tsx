@@ -56,6 +56,10 @@ export const ContactInfo = ({}) => {
         }
       >
         <SelectContactsDrawer
+          onClickAdd={() => {
+            setIsAddContactDrawerOpen(true);
+            setIsSelectContactsDrawerOpen(false);
+          }}
           onCancel={() => setIsSelectContactsDrawerOpen(false)}
         />
       </Drawer>

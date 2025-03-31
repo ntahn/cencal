@@ -1,0 +1,21 @@
+.actionButtons {
+  margin-top: 16px;
+  > button {
+    font-family: var(--font-figtree);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 20px 10px;
+    border-color: var(--blue-600);
+
+    &.ghostButton {
+      color: var(--blue-600);
+      border-color: var(--blue-600);
+    }
+
+    &.button {
+      color: var(--foreground);
+      background-color: var(--blue-600);
+    }
+  }
+}
