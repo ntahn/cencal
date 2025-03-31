@@ -1,3 +1,5 @@
+Live on: https://cencal-git-master-hnanauts-projects.vercel.app/
+
 # CenCal Project Setup
 
 ## Prerequisites
