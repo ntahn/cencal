@@ -1,0 +1,64 @@
+.container {
+  .title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+
+    &.required {
+      &::after {
+        content: "*";
+        color: var(--red-required);
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .select {
+    margin-top: 4px;
+    height: 48px;
+    min-width: 200px;
+
+    > div {
+      background-color: var(--gray-600) !important;
+      border-color: var(--gray-600) !important;
+      padding: 0 16px !important;
+
+      span {
+        color: var(--gray-500) !important;
+        font-weight: 400 !important;
+      }
+    }
+
+    :global {
+      .ant-select-selector {
+        background-color: var(--gray-600) !important;
+        padding: 0 16px !important;
+      }
+
+      .ant-select-dropdown {
+        background-color: var(--gray-600) !important;
+
+        .ant-select-item {
+          background-color: transparent;
+          color: var(--foreground);
+
+          &-option-selected {
+            background-color: var(--gray-550) !important;
+          }
+
+          &-option-active {
+            background-color: var(--gray-550) !important;
+          }
+        }
+      }
+    }
+  }
+
+  .errorMessage {
+    margin-top: 4px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--red-required);
+  }
+}

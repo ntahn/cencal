@@ -5,3 +5,5 @@ export * from "./DashboardWrapper";
 export * from "./Drawer";
 export * from "./TextInput";
 export * from "./DrawerButtons";
+export * from "./SelectInput";
+export * from "./DynamicInput";

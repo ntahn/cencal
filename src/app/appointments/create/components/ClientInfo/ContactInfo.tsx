@@ -9,7 +9,7 @@ import {
   AddContactDrawer,
 } from "./components";
 
-import { Contact } from "@/models";
+import { ClientInfoFormData, Contact } from "@/models";
 import { strings } from "@/constants";
 
 import styles from "./ContactInfo.module.scss";
@@ -17,7 +17,11 @@ import styles from "./ContactInfo.module.scss";
 // type ContactProps = {};
 
 export const ContactInfo = ({}) => {
-  const { setValue, watch } = useFormContext();
+  const {
+    setValue,
+    watch,
+    formState: { errors },
+  } = useFormContext<ClientInfoFormData>();
   const [isSelectContactsDrawerOpen, setIsSelectContactsDrawerOpen] =
     useState(false);
   const [isAddContactDrawerOpen, setIsAddContactDrawerOpen] = useState(false);
@@ -26,7 +30,7 @@ export const ContactInfo = ({}) => {
 
   const handleRemoveClient = (id: string) => {
     const newContacts = selectedContacts.filter((contact) => contact.id !== id);
-    setValue("contacts", newContacts);
+    setValue("contacts", newContacts, { shouldValidate: true });
   };
 
   return (
@@ -45,6 +49,9 @@ export const ContactInfo = ({}) => {
             onClickSelect={() => setIsSelectContactsDrawerOpen(true)}
             onClickAdd={() => setIsAddContactDrawerOpen(true)}
           />
+        )}
+        {errors?.contacts?.message && (
+          <div className={styles.error}>{errors?.contacts?.message}</div>
         )}
       </div>
       <Drawer

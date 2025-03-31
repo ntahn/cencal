@@ -42,6 +42,9 @@ export const strings = {
             },
           },
         },
+        VEHICLE: {
+          TITLE: "Vehicle Detail",
+        },
       },
       SERVICES: {
         TITLE: "Services",

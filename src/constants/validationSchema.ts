@@ -39,4 +39,17 @@ export const addContactSchema = yup.object({
   note: yup.string().optional(),
 });
 
+export const clientInfoSchema = yup.object({
+  contacts: yup.array().min(1, "Contact is required."),
+
+  vehicle: yup
+    .object({
+      vehicleYear: yup.string().required("Vehicle year is required"),
+      vehicleMake: yup.string().required("Vehicle make is required"),
+      vehicleModel: yup.string().required("Vehicle model is required"),
+      vehicleType: yup.string().required("Vehicle type is required"),
+    })
+    .required(),
+});
+
 export type AddContactFormData = yup.InferType<typeof addContactSchema>;

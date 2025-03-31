@@ -24,11 +24,12 @@ export const formProgressSteps: FormProgress[] = [
 export const clientInfoDefaultValues: ClientInfoFormData = {
   contacts: [],
   vehicle: {
-    make: "",
-    model: "",
-    year: new Date().getFullYear(),
-    vin: "",
+    vehicleMake: null,
+    vehicleModel: null,
+    vehicleYear: null,
+    vehicleType: null,
   },
+  services: [],
 };
 
 export const addContactFormDefaultvalues: AddContactFormData = {

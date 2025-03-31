@@ -1,23 +1,31 @@
 import React from "react";
 import classNames from "classnames";
-import { Input } from "antd";
+import { Select } from "antd";
+import { ArrowDown } from "@/assets/icons";
+import { DropdownItem } from "@/models";
 
-import styles from "./TextInput.module.scss";
+import styles from "./SelectInput.module.scss";
 
 type TextInputProps = {
   title: string;
   placeholder?: string;
   required?: boolean;
   disabled?: boolean;
+  showSearch: boolean;
   errorMessage?: string;
+  width?: number;
+  options: DropdownItem[];
 };
 
-export const TextInput = ({
+export const SelectInput = ({
   title,
-  placeholder,
+  placeholder = "Select",
+  showSearch = false,
   required = false,
   disabled = false,
   errorMessage = "",
+  width,
+  options,
   ...props
 }: TextInputProps) => {
   return (
@@ -27,10 +35,15 @@ export const TextInput = ({
       >
         {title}
       </div>
-      <Input
-        className={classNames(styles.input, { [styles.error]: !!errorMessage })}
-        placeholder={placeholder ?? "Enter"}
+      <Select
+        style={{ width: width ?? "100%" }}
+        className={styles.select}
+        showSearch={showSearch}
+        status={errorMessage ? "error" : undefined}
+        placeholder={placeholder}
         disabled={disabled}
+        suffixIcon={<ArrowDown />}
+        options={options}
         {...props}
       />
       {errorMessage && (

@@ -40,7 +40,7 @@ export const AddContactDrawer = ({ onCancel }: AddContactDrawerProps) => {
   }, [watchEmail, watchPhoneNumber, trigger]);
 
   const onSubmit = handleSubmit((data) => {
-    setValue("contacts", [data]);
+    setValue("contacts", [data], { shouldValidate: true });
     onCancel();
   });
 
@@ -63,13 +63,15 @@ export const AddContactDrawer = ({ onCancel }: AddContactDrawerProps) => {
             name={contactField.id as keyof AddContactFormData}
             control={control}
             render={({ field }) => (
-              <TextInput
-                {...field}
-                title={contactField.title}
-                placeholder={contactField.placeholder}
-                required={contactField.isRequired}
-                errorMessage={errors?.[field.name]?.message}
-              />
+              <div className={styles.row}>
+                <TextInput
+                  {...field}
+                  title={contactField.title}
+                  placeholder={contactField.placeholder}
+                  required={contactField.isRequired}
+                  errorMessage={errors?.[field.name]?.message}
+                />
+              </div>
             )}
           />
         ))}

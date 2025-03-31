@@ -8,11 +8,12 @@ export interface FormProgress {
 export interface ClientInfoFormData {
   contacts: Contact[];
   vehicle: {
-    make: string;
-    model: string;
-    year: number;
-    vin?: string;
+    vehicleMake: string | null;
+    vehicleModel: string | null;
+    vehicleYear: string | null;
+    vehicleType: string | null;
   };
+  services: object[];
 }
 
 export interface AddContactInput {
@@ -20,4 +21,9 @@ export interface AddContactInput {
   title: string;
   placeholder: string;
   isRequired: boolean;
+}
+
+export interface DropdownItem {
+  value: string;
+  label: string;
 }

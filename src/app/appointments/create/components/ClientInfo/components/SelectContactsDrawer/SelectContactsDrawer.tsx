@@ -61,14 +61,18 @@ export const SelectContactsDrawer = ({
 
   const handleOnSelectChange = useCallback(
     (selectedIds: React.Key[]) => {
-      console.log({ selectedIds });
       const newContacts = allContacts.filter((contact) =>
         selectedIds.includes(contact.id)
       );
-      setValue("contacts", newContacts);
+      setValue("contacts", newContacts, { shouldValidate: true });
     },
     [allContacts, setValue]
   );
+
+  const handleCancel = useCallback(() => {
+    setValue("contacts", [], { shouldValidate: true });
+    onCancel();
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -78,7 +82,7 @@ export const SelectContactsDrawer = ({
         selectedRowIds={selectedRowIds}
         onChange={handleOnSelectChange}
       />
-      <SelectContactsButtons onCancel={onCancel} onSelect={onCancel} />
+      <SelectContactsButtons onCancel={handleCancel} onSelect={onCancel} />
     </div>
   );
 };

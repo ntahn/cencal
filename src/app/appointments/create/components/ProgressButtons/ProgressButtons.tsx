@@ -5,12 +5,14 @@ import styles from "./ProgressButtons.module.scss";
 
 type ProgressButtonsProps = {
   currentStep: number;
+  clickForwardDisabled?: boolean;
   onClickBack?: () => void;
   onClickForward?: () => void;
 };
 
 export const ProgressButtons = ({
   currentStep,
+  clickForwardDisabled = false,
   onClickBack,
   onClickForward,
 }: ProgressButtonsProps) => {
@@ -33,6 +35,7 @@ export const ProgressButtons = ({
         <Button
           className={styles.button}
           type="default"
+          disabled={clickForwardDisabled}
           onClick={onClickForward}
         >
           Next
