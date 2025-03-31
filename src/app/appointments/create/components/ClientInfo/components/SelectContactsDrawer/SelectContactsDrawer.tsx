@@ -1,15 +1,16 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 import debounce from "lodash/debounce";
 
 import { SearchHeader } from "./SearchHeader";
 import { ContactsTable } from "./ContactsTable";
-import { SelectContactsButtons } from "./SelectContactButtons";
+import { SelectContactsButtons } from "./SelectContactsButtons";
 
+import { useFormContext } from "react-hook-form";
 import { useAppSelector } from "@/store";
 import { selectAllContacts } from "@/store/features/contact/contactSlice";
 
-import { ContactTableDataType } from "@/models";
+import { Contact, ContactTableDataType } from "@/models";
 
 import styles from "./SelectContactsDrawer.module.scss";
 
@@ -20,25 +21,32 @@ type SelectContactsDrawerProps = {
 export const SelectContactsDrawer = ({
   onCancel,
 }: SelectContactsDrawerProps) => {
+  const allContacts = useAppSelector(selectAllContacts);
   const [searchKeyword, setSearchKeyword] = useState("");
-  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-  const contacts = useAppSelector(selectAllContacts);
+  const { setValue, watch } = useFormContext();
+
+  const selectedContacts: Contact[] = watch("contacts");
+
+  const selectedRowIds = useMemo(
+    () => selectedContacts.map((contact) => contact.id),
+    [selectedContacts]
+  );
 
   const filteredContacts = useMemo(() => {
-    if (!searchKeyword.trim()) return contacts;
+    if (!searchKeyword.trim()) return allContacts;
 
     const keyword = searchKeyword.toLowerCase();
-    return contacts.filter(
+    return allContacts.filter(
       ({ name, email, phoneNumber }) =>
         name.toLowerCase().includes(keyword) ||
         email.toLowerCase().includes(keyword) ||
         phoneNumber.toLowerCase().includes(keyword)
     );
-  }, [contacts, searchKeyword]);
+  }, [allContacts, searchKeyword]);
 
   const dataSource: ContactTableDataType[] = [...(filteredContacts || [])]?.map(
     ({ id, name, email, phoneNumber }) => ({
-      key: id,
+      id,
       name,
       email,
       phoneNumber,
@@ -49,26 +57,26 @@ export const SelectContactsDrawer = ({
     setSearchKeyword(value);
   }, 500);
 
-  const handleSelectContacts = () => {
-    const selectedContacts = contacts.filter(({ id }) =>
-      selectedRowKeys.includes(id)
-    );
-
-    console.log({ selectedRowKeys, selectedContacts });
-  };
+  const handleOnSelectChange = useCallback(
+    (selectedIds: React.Key[]) => {
+      console.log({ selectedIds });
+      const newContacts = allContacts.filter((contact) =>
+        selectedIds.includes(contact.id)
+      );
+      setValue("contacts", newContacts);
+    },
+    [allContacts, setValue]
+  );
 
   return (
     <div className={styles.container}>
       <SearchHeader onSearch={handleSearch} onAddNew={() => {}} />
       <ContactsTable
         dataSource={dataSource}
-        selectedRowKeys={selectedRowKeys}
-        setSelectedRowKeys={setSelectedRowKeys}
+        selectedRowIds={selectedRowIds}
+        onChange={handleOnSelectChange}
       />
-      <SelectContactsButtons
-        onCancel={onCancel}
-        onSelect={handleSelectContacts}
-      />
+      <SelectContactsButtons onCancel={onCancel} onSelect={onCancel} />
     </div>
   );
 };

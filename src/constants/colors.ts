@@ -18,6 +18,7 @@ export const colors = {
   },
   red: {
     require: "#F64D3C",
+    error: "#FA1717",
   },
 };
 

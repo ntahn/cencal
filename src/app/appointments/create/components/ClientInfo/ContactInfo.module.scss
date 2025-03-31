@@ -1,0 +1,16 @@
+.contactContainer {
+  > div {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 4px;
+  }
+
+  .required {
+    &::after {
+      content: "*";
+      color: var(--red-required);
+      margin-left: 4px;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.container {
+  .clientList {
+    margin-top: 8px;
+    margin-bottom: 0px;
+
+    > div {
+      margin-top: 4px;
+    }
+
+    .description {
+      color: var(--gray-400);
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 16px;
+      margin-right: 32px;
+    }
+
+    .clientInfo {
+      color: var(--foreground);
+      text-align: center;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      padding: 0 8px;
+      border-right: 1px solid var(--gray-600);
+    }
+
+    .action {
+      cursor: pointer;
+    }
+  }
+}

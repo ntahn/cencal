@@ -6,9 +6,13 @@ export const strings = {
         CONTACT: {
           TITLE: "Contact",
           PLACEHOLDER: "Select",
-          DRAWER: {
+          SELECT_DRAWER: {
             TITLE: "Contact",
             SEARCH_PLACE_HOLDER: "Search by name, phone number or email",
+          },
+          ADD_DRAWER: {
+            TITLE: "Add contact",
+            RULE: "Please enter at least one field: email or phone number.",
           },
         },
       },

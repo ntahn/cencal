@@ -13,7 +13,7 @@ export const SearchHeader = ({ onSearch, onAddNew }: SearchHeaderProps) => (
     <Input
       className={styles.search}
       placeholder={
-        strings.APPOINTMENTS.CREATE.CLIENT_INFO.CONTACT.DRAWER
+        strings.APPOINTMENTS.CREATE.CLIENT_INFO.CONTACT.SELECT_DRAWER
           .SEARCH_PLACE_HOLDER
       }
       prefix={<Search />}

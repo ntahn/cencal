@@ -37,9 +37,9 @@ const CreateAppointments = () => {
       case 0:
         return <ClientInfo />;
       case 1:
-        return <div>Time Slot Selection</div>;
+        return <div>Services</div>;
       case 2:
-        return <div>Review Details</div>;
+        return <div>Review & Send</div>;
       default:
         return null;
     }

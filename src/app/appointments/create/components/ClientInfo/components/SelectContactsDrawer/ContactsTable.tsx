@@ -5,14 +5,14 @@ import styles from "./SelectContactsDrawer.module.scss";
 
 interface ContactsTableProps {
   dataSource: ContactTableDataType[];
-  selectedRowKeys: React.Key[];
-  setSelectedRowKeys: (selectedKeys: React.Key[]) => void;
+  selectedRowIds: React.Key[];
+  onChange: (selectedKeys: React.Key[]) => void;
 }
 
 export const ContactsTable = ({
   dataSource,
-  selectedRowKeys,
-  setSelectedRowKeys,
+  selectedRowIds,
+  onChange,
 }: ContactsTableProps) => (
   <div className={styles.table}>
     <Table<ContactTableDataType>
@@ -21,13 +21,14 @@ export const ContactsTable = ({
         type: "checkbox",
         columnTitle: "Action",
         columnWidth: 80,
-        selectedRowKeys,
-        onChange: setSelectedRowKeys,
+        selectedRowKeys: selectedRowIds,
+        onChange,
         renderCell: (_, __, ___, originNode) => (
           <div className={styles.customCheckbox}>{originNode}</div>
         ),
       }}
       dataSource={dataSource}
+      rowKey="id"
       pagination={false}
       scroll={{ y: dataSource.length > 7 ? 480 : undefined }}
     />
