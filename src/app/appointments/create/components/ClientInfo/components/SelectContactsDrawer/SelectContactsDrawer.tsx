@@ -8,7 +8,7 @@ import { SelectContactsButtons } from "./SelectContactsButtons";
 
 import { useFormContext } from "react-hook-form";
 import { useAppSelector } from "@/store";
-import { selectAllContacts } from "@/store/features/contact/contactSlice";
+import { selectAllContacts } from "@/store/features/contact";
 
 import { Contact, ContactTableDataType } from "@/models";
 

@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useForm, Controller, useFormContext } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useAppDispatch } from "@/store";
+import { addContactThunk } from "@/store/features/contact";
 import { DrawerButtons, TextInput } from "@/components";
 import {
   addContactFields,
@@ -9,6 +11,7 @@ import {
   addContactSchema,
   strings,
 } from "@/constants";
+import { Contact } from "@/models";
 
 import styles from "./AddContactDrawer.module.scss";
 
@@ -17,6 +20,7 @@ type AddContactDrawerProps = {
 };
 
 export const AddContactDrawer = ({ onCancel }: AddContactDrawerProps) => {
+  const dispatch = useAppDispatch();
   const { setValue } = useFormContext();
   const {
     watch,
@@ -39,9 +43,15 @@ export const AddContactDrawer = ({ onCancel }: AddContactDrawerProps) => {
       trigger(["email", "phoneNumber", "secondPhoneNumber"]);
   }, [watchEmail, watchPhoneNumber, trigger]);
 
-  const onSubmit = handleSubmit((data) => {
-    setValue("contacts", [data], { shouldValidate: true });
-    onCancel();
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const result = await dispatch(addContactThunk(data as Contact));
+      setValue("contacts", [result?.payload], { shouldValidate: true });
+    } catch (error) {
+      console.log({ error });
+    } finally {
+      onCancel();
+    }
   });
 
   return (

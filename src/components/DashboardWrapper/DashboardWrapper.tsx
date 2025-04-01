@@ -6,7 +6,7 @@ import { Header } from "../Header";
 import { SideBar } from "../SideBar";
 
 import { useAppDispatch } from "@/store";
-import { fetchContacts } from "@/store/features/contact/contactSlice";
+import { fetchContactsThunk } from "@/store/features/contact";
 
 import styles from "./DashboardWrapper.module.scss";
 
@@ -18,7 +18,7 @@ export const DashboardWrapper = (props: DashboardWrapperProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(fetchContactsThunk());
   }, [dispatch]);
 
   return (
