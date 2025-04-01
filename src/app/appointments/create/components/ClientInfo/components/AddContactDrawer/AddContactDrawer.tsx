@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useForm, Controller, useFormContext } from "react-hook-form";
+import { notification } from "antd";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAppDispatch } from "@/store";
 import { addContactThunk } from "@/store/features/contact";
@@ -46,6 +47,12 @@ export const AddContactDrawer = ({ onCancel }: AddContactDrawerProps) => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       const result = await dispatch(addContactThunk(data as Contact));
+      notification.success({
+        message: "New contact added successfully!",
+        placement: "topRight",
+        closeIcon: false,
+        duration: 3,
+      });
       setValue("contacts", [result?.payload], { shouldValidate: true });
     } catch (error) {
       console.log({ error });
